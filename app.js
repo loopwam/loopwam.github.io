@@ -6,7 +6,7 @@
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const saveData = navigator.connection?.saveData === true;
   let autoplay = !reduced && !saveData;
-  const videos = $$('video');
+  const videos = $$('video').filter(video => !video.closest('#loop-visual, .teaser-video-dialog'));
   const visible = new Set();
   const manuallyPaused = new WeakSet();
   const automaticPause = new WeakSet();
